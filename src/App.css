@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.main-left {
+  width: 50%;
+}
+
+.main-right {
+  position: fixed;
+  right: 10px;
+  width: 45%;
+  overflow: hidden !important;
+}
+.line {
+  position: absolute;
+  left: 53%;
+  border: 1px solid #ccc;
+  min-height: 100vh !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  /* background-color: transparent;
+  border: none; */
+}

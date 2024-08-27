@@ -1,0 +1,23 @@
+label {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.input-div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-div.secondary {
+  flex-direction: column !important;
+  gap: 5px;
+}
+
+.input-div > input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  font-size: 20px;
+  width: 70%;
+}

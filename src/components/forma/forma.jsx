@@ -6,18 +6,32 @@ import Button from "../button/button";
 import { FormContext } from "../../Context/useFormContext.jsx";
 import { RecipeData } from "../../Context/recipeContext.jsx";
 import { Toggle } from "../../Context/toggleContext.jsx";
+import { Edit } from "../../Context/editContext.jsx";
 
 function Forma() {
+  const { toggle, setToggle } = React.useContext(Toggle);
+  const { formData, setFormData } = React.useContext(FormContext);
+  const { recipe, setRecipe } = React.useContext(RecipeData);
+  const { edit, setEdit } = React.useContext(Edit);
   const {
     control,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
       ingredients: [{ name: "", amount: "" }],
     },
   });
+
+  React.useEffect(() => {
+    if (formData) {
+      for (const [key, value] of Object.entries(formData)) {
+        setValue(key, value);
+      }
+    }
+  }, [formData, setValue]);
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -30,14 +44,23 @@ function Forma() {
         ...data,
         ingredients: data.ingredients,
       };
+
       setFormData(formattedData);
 
       setRecipe((prev) => {
-        const updatedRecipes = [...prev, formattedData];
+        let updatedRecipes;
+        if (edit !== null) {
+          updatedRecipes = [...prev];
+          updatedRecipes[edit] = formattedData;
+        } else {
+          updatedRecipes = [...prev, formattedData];
+        }
         localStorage.setItem("recipe", JSON.stringify(updatedRecipes));
         return updatedRecipes;
       });
 
+      setEdit(null);
+      setFormData(null);
       reset();
     }
   };
@@ -47,10 +70,6 @@ function Forma() {
       e.preventDefault();
     }
   };
-
-  const { toggle, setToggle } = React.useContext(Toggle);
-  const { formData, setFormData } = React.useContext(FormContext);
-  const { recipe, setRecipe } = React.useContext(RecipeData);
 
   return (
     <div className="form-div" onKeyDown={handleKeyDown}>

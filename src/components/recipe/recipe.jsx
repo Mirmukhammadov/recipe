@@ -4,12 +4,16 @@ import Button from "../button/button.jsx";
 
 import { FormContext } from "../../Context/useFormContext.jsx";
 import { RecipeData } from "../../Context/recipeContext.jsx";
+import { Toggle } from "../../Context/toggleContext.jsx";
+import { Edit } from "../../Context/editContext.jsx";
 
 import "./recipe.css";
 
 function Recipe() {
   const { formData, setFormData } = React.useContext(FormContext);
   const { recipe, setRecipe } = React.useContext(RecipeData);
+  const { toggle, setToggle } = React.useContext(Toggle);
+  const { edit, setEdit } = React.useContext(Edit);
 
   function deleteRecipe(e) {
     setRecipe((prev) => {
@@ -20,7 +24,10 @@ function Recipe() {
   }
 
   function editRecipe(e) {
-    console.log("deleteRecipe", e);
+    console.log(recipe[e]);
+    setFormData(recipe[e]);
+    setToggle(true);
+    setEdit(e);
   }
 
   return (

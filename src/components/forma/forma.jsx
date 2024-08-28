@@ -121,7 +121,7 @@ function Forma() {
         <div className="form-btm">
           <h2>Ingredients</h2>
           {fields.map((item, index) => (
-            <div className="forma-div" key={item.id}>
+            <div className="forma-div forma-div-btn" key={item.id}>
               <Input
                 id={`ingredient-name-${index}`}
                 type="text"

@@ -44,10 +44,15 @@
   align-items: start;
 }
 
-.forma-div:nth-child(2) {
+.forma-div-btn {
   width: 100%;
   justify-content: flex-start !important;
-  align-items: end;
+  align-items: center;
+  justify-items: center;
+}
+
+.forma-div-btn > div > button {
+  margin-top: 30px !important;
 }
 
 .form-btn {

@@ -71,12 +71,15 @@ function Forma() {
     }
   };
 
+  function handleX() {
+    setToggle(false);
+    reset();
+  }
+
   return (
     <div className="form-div" onKeyDown={handleKeyDown}>
       <div>
-        <button className="form-btn" onClick={() => setToggle(false)}>
-          X
-        </button>
+        <Button className="form-btn" text="X" onClick={handleX} />
       </div>
       <form className={`forma`} onSubmit={handleSubmit(onSubmit)}>
         <Input

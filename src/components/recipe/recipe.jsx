@@ -24,7 +24,6 @@ function Recipe() {
   }
 
   function editRecipe(e) {
-    console.log(recipe[e]);
     setFormData(recipe[e]);
     setToggle(true);
     setEdit(e);
@@ -59,7 +58,7 @@ function Recipe() {
                 Servings: <span>{item.servings}</span>
               </p>
               <p>
-                Instructions: <span>{item.instructions}</span>
+                Instructions: <br /> <span>{item.instructions}</span>
               </p>
               <p>
                 Ingredients:

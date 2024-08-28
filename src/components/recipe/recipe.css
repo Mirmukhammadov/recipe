@@ -2,16 +2,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 10px;
 }
 
 li > .recipe-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 30px;
-  text-align: start;
-  align-items: end;
+  text-align: left;
+  align-items: center;
 }
 
 .recipe-top > h1 {
@@ -28,6 +26,10 @@ li > .recipe-top {
 p {
   font-size: 25px;
   line-height: 40px;
+}
+
+p > span {
+  overflow-wrap: anywhere;
 }
 
 .hide {

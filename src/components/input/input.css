@@ -4,14 +4,21 @@ label {
 }
 
 .input-div {
-  width: 100%;
+  width: 100% !important;
   display: flex;
   justify-content: space-between;
+}
+
+.input-div > input {
+  max-width: 400px;
+  width: 100% !important;
 }
 
 .input-div.secondary {
   flex-direction: column !important;
   gap: 5px;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .input-div > input {
